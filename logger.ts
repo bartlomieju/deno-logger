@@ -1,17 +1,18 @@
-import { LogLevel } from './levels.ts';
+import { LogLevel, getLevelByName, getLevelName } from './levels.ts';
 
 export class Logger {
     level: number;
+    levelName: string;
     handlers: any[];
 
-    constructor(level, handlers) {
-        this.level = level;
+    constructor(levelName, handlers) {
+        this.level = getLevelByName(levelName);
+        this.levelName = levelName;
         this.handlers = handlers;
     }
 
     _log(level, ...args) {
         this.handlers.forEach(handler => {
-            console.log('handle', handler, level, ...args);
             handler.handle(level, ...args);
         });
     }

@@ -14,3 +14,19 @@ const byName = {
     'ERROR': LogLevel.ERROR,
     'CRITICAL': LogLevel.DEBUG,
 };
+
+const byLevel = {
+    [LogLevel.DEBUG]: 'DEBUG',
+    [LogLevel.INFO]: 'INFO',
+    [LogLevel.WARNING]: 'WARNING',
+    [LogLevel.ERROR]: 'ERROR',
+    [LogLevel.CRITICAL]: 'CRITICAL',
+}
+
+export function getLevelByName(name) {
+    return byName[name];
+}
+
+export function getLevelName(level) {
+    return byLevel[level];
+}
